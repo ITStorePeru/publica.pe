@@ -1,0 +1,6 @@
+{
+  "name": "PUBLICA.PE",
+  "description": "Marketplace de nueva generación C2C y B2C para compra, venta y publicación.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
