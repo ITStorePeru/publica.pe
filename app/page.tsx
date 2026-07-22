@@ -341,7 +341,7 @@ const BrandLogo = ({
         <circle cx="52" cy="56" r="12" fill="white" />
       </svg>
       {/* Brand Text styling with exact colors matching */}
-      <span className="font-sans font-black text-2xl md:text-3xl tracking-tight flex items-baseline">
+      <span className="font-sans font-black text-xl sm:text-2xl md:text-3xl tracking-tight flex items-baseline">
         <span className="text-[#00BA9D]">u</span>
         <span className="text-[#FF5A00]">b</span>
         <span className="text-[#5D32B8]">l</span>
@@ -355,7 +355,7 @@ const BrandLogo = ({
     </div>
     {/* Slogan with exact colored dots */}
     {showSlogan && (
-      <div className="text-[9px] md:text-[10px] text-gray-500 font-extrabold tracking-wider flex items-center gap-1 mt-0.5 ml-1 uppercase">
+      <div className="hidden sm:flex text-[9px] md:text-[10px] text-gray-500 font-extrabold tracking-wider items-center gap-1 mt-0.5 ml-1 uppercase">
         <span>publica</span><span className="text-[#5D32B8] font-black">.</span>
         <span>encuentra</span><span className="text-[#00BA9D] font-black">.</span>
         <span>conecta</span><span className="text-[#FF5A00] font-black">.</span>
@@ -409,7 +409,7 @@ const ProductCard = ({ product, isFav, onToggleFavorite, onClick }: ProductCardP
       </button>
 
       {/* Visual Background */}
-      <div className="bg-gray-50/50 h-44 flex items-center justify-center relative overflow-hidden shrink-0">
+      <div className="bg-gray-50/50 aspect-[4/3] w-full flex items-center justify-center relative overflow-hidden shrink-0">
         <div className="absolute inset-0 bg-gradient-to-tr from-gray-100/20 via-transparent to-gray-50/20" />
         {product.image ? (
           <div className="relative w-full h-full">
@@ -430,25 +430,25 @@ const ProductCard = ({ product, isFav, onToggleFavorite, onClick }: ProductCardP
       </div>
 
       {/* Content Area */}
-      <div className="p-4 flex flex-col justify-between flex-1 space-y-3">
+      <div className="p-3 sm:p-4 flex flex-col justify-between flex-1 space-y-2.5 sm:space-y-3">
         <div>
           {/* Tag Category · Condition */}
-          <p className="text-[11px] font-semibold text-gray-500 tracking-tight uppercase">
+          <p className="text-[10px] sm:text-[11px] font-semibold text-gray-500 tracking-tight uppercase">
             {product.category} · {isNew ? 'Nuevo' : 'Usado'}
           </p>
 
           {/* Price & Seller section */}
-          <div className="flex items-center justify-between mt-1.5 min-h-[44px]">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 mt-1.5 min-h-auto sm:min-h-[44px]">
             <div className="flex flex-col">
-              <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider leading-none">Desde</span>
-              <span className="text-base font-black text-gray-950 tracking-tight mt-1">
+              <span className="text-[9px] sm:text-[10px] text-gray-400 font-bold uppercase tracking-wider leading-none">Desde</span>
+              <span className="text-sm sm:text-base font-black text-gray-950 tracking-tight mt-0.5 sm:mt-1">
                 S/ {product.price.toLocaleString('es-PE')}
               </span>
             </div>
             
             {/* Store Badge Logo - Modeled after brand logos on the right in image */}
             <div className="shrink-0 flex items-center">
-              <div className="bg-gray-50/70 border border-gray-100 rounded px-2 py-1 font-black text-[9px] text-gray-600 uppercase tracking-tight shadow-3xs max-w-[95px] truncate text-center">
+              <div className="bg-gray-50/70 border border-gray-100 rounded px-1.5 py-0.5 sm:px-2 sm:py-1 font-black text-[8px] sm:text-[9px] text-gray-600 uppercase tracking-tight shadow-3xs max-w-[85px] sm:max-w-[95px] truncate text-center">
                 {product.store || 'Mi Tienda'}
               </div>
             </div>
@@ -460,18 +460,18 @@ const ProductCard = ({ product, isFav, onToggleFavorite, onClick }: ProductCardP
           </h3>
 
           {/* Location Area */}
-          <p className="text-[11px] text-gray-400 font-medium truncate mt-0.5">
+          <p className="text-[10px] sm:text-[11px] text-gray-400 font-medium truncate mt-0.5">
             {product.location}
           </p>
         </div>
 
         {/* Bottom divider and statuses with icons */}
-        <div className="border-t border-gray-100/40 pt-3 flex items-center justify-between text-[10px] text-gray-500 font-bold uppercase">
-          <div className="flex items-center gap-1.5 min-w-0">
+        <div className="border-t border-gray-100/40 pt-2.5 sm:pt-3 flex items-center justify-between text-[9px] sm:text-[10px] text-gray-500 font-bold uppercase gap-1 min-w-0">
+          <div className="flex items-center gap-1 sm:gap-1.5 min-w-0">
             <LayoutGrid className="w-3.5 h-3.5 text-gray-400 shrink-0" />
             <span className="truncate">{icon1Text}</span>
           </div>
-          <div className="flex items-center gap-1.5 min-w-0">
+          <div className="flex items-center gap-1 sm:gap-1.5 min-w-0">
             <Calendar className="w-3.5 h-3.5 text-gray-400 shrink-0" />
             <span className="truncate">{icon2Text}</span>
           </div>
@@ -982,16 +982,16 @@ export default function HomePage() {
           </div>
 
           {/* Nav Items */}
-          <div className="flex items-center gap-5 text-sm font-extrabold text-gray-700 tracking-wide shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-5 text-sm font-extrabold text-gray-700 tracking-wide shrink-0">
             
             {/* Ingresar solid button + Dropdown container */}
             <div className="relative">
               <button 
                 onClick={() => setIngresarMenuOpen(!ingresarMenuOpen)}
-                className="border border-gray-200 hover:border-[#FF5A00]/50 text-gray-700 hover:text-[#FF5A00] bg-white px-4.5 py-2.5 rounded-xl font-extrabold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-3xs hover:shadow-2xs"
+                className="border border-gray-200 hover:border-[#FF5A00]/50 text-gray-700 hover:text-[#FF5A00] bg-white px-3 py-2 sm:px-4.5 sm:py-2.5 rounded-xl font-extrabold text-xs uppercase tracking-wider transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer shadow-3xs hover:shadow-2xs"
               >
                 <LogIn className="w-4 h-4 text-[#FF5A00]" />
-                <span>Ingresar</span>
+                <span className="hidden sm:inline">Ingresar</span>
                 <ChevronDown className={`w-3.5 h-3.5 text-gray-400 transition-transform duration-200 ${ingresarMenuOpen ? 'rotate-180' : ''}`} />
               </button>
 
@@ -1123,10 +1123,10 @@ export default function HomePage() {
             {/* Publicar Gratis button (placed after, improved, highly polished CTA) */}
             <button 
               onClick={() => setIsPublishModalOpen(true)}
-              className="bg-[#FF5A00] hover:bg-[#E04F00] text-white px-5 py-2.5 rounded-xl font-black text-xs uppercase tracking-widest transition-all shadow-md hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2 cursor-pointer shrink-0"
+              className="bg-[#FF5A00] hover:bg-[#E04F00] text-white px-3 py-2 sm:px-5 sm:py-2.5 rounded-xl font-black text-xs uppercase tracking-widest transition-all shadow-md hover:scale-[1.02] active:scale-[0.98] flex items-center gap-1.5 sm:gap-2 cursor-pointer shrink-0"
             >
               <Plus className="w-4 h-4 stroke-[3]" />
-              <span>Publicar Gratis</span>
+              <span>Publicar<span className="hidden sm:inline"> Gratis</span></span>
             </button>
 
           </div>
@@ -1937,7 +1937,7 @@ export default function HomePage() {
           </div>
 
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-3.5 sm:gap-4.5 lg:gap-6">
               {filteredProducts.map((p) => {
                 const isFav = favorites.includes(p.id);
                 return (
@@ -1988,7 +1988,7 @@ export default function HomePage() {
                 <span className="text-[#5D32B8] hover:text-[#FF5A00] font-extrabold text-xs uppercase tracking-widest hover:underline cursor-pointer transition-colors">Ver todos</span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-3.5 sm:gap-4.5">
                 {displayedFeatured.map((p) => {
                   const isFav = favorites.includes(p.id);
                   return (
@@ -2030,7 +2030,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-3.5 sm:gap-4.5">
                   {displayedVehicles.slice(vehicleIndex, vehicleIndex + 5).map((p) => {
                     const isFav = favorites.includes(p.id);
                     return (
@@ -2059,7 +2059,7 @@ export default function HomePage() {
                 <span className="text-blue-600 font-extrabold text-xs uppercase tracking-widest hover:underline cursor-pointer">Ver todos</span>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-3.5 sm:gap-4.5">
                 {displayedTech.map((p) => {
                   const isFav = favorites.includes(p.id);
                   return (
@@ -2562,7 +2562,7 @@ export default function HomePage() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className={`bg-white rounded-3xl w-full overflow-hidden shadow-2xl relative p-6 sm:p-8 transition-all duration-300 ${publishStep === 1 ? 'max-w-2xl' : 'max-w-lg'}`}
+              className={`bg-white rounded-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 sm:p-8 transition-all duration-300 ${publishStep === 1 ? 'max-w-2xl' : 'max-w-lg'}`}
               id="publish-modal"
             >
               <button 
